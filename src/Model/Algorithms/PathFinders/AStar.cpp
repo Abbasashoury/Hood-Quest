@@ -11,28 +11,49 @@ struct AstarResult
 int euclideanHeuristic(char from, char to)
 {
     // a map to store the cordinations
-    map<char , pair<int , int>> nodeCordinates;
+    map<char, pair<int, int>> nodeCordinates =
+        {
+            {'V', {0, 0}},
+            {'U', {0, 0}},
+            {'T', {0, 0}},
+            {'Q', {0, 0}},
+            {'O', {0, 0}},
+            {'P', {0, 0}},
+            {'R', {0, 0}},
+            {'S', {0, 0}},
+            {'M', {0, 0}},
+            {'W', {0, 0}},
+            {'K', {0, 0}},
+            {'J', {0, 0}},
+            {'F', {0, 0}},
+            {'A', {0, 0}},
+            {'B', {0, 0}},
+            {'C', {0, 0}},
+            {'D', {0, 0}},
+            {'E', {0, 0}},
+            {'G', {0, 0}}
+        };
 
     // get the nodes from the map
     auto itA = nodeCordinates.find(from);
     auto itB = nodeCordinates.find(to);
-    
+
     // check if the nodes are not in the map
     if (itA == nodeCordinates.end() || itB == nodeCordinates.end())
     {
         return 0;
     }
-    
+
     // extract first and second node cordination
     int x1 = itA->second.first;
     int y1 = itA->second.second;
     int x2 = itB->second.first;
     int y2 = itB->second.second;
-    
+
     // calculate the euclidean distance
     int dx = x1 - x2;
     int dy = y1 - y2;
-    
+
     return static_cast<int>(sqrt(dx * dx + dy * dy));
 }
 
@@ -172,5 +193,5 @@ AstarResult AStar(const Graph &graph, char from, char to, char wolfPosition, heu
     }
 
     // if there is not any path
-    return {{} , -1};
+    return {{}, -1};
 }
