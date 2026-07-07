@@ -160,7 +160,7 @@ void dijkstraPrintPath(const Graph &graph, char from, char destinationNode , boo
     // initialize the needed variables
     pathFinderResult result = pathFinder(graph, from, destinationNode , player); // get the pathfinder output
     const vector<char> &path = result.path; // get the path
-    int totaldistance = result.totalweight; // get the total distance
+    int totalDistance = result.totalweight; // get the total distance
 
     // check if there is a path or no
     if (path.empty())
@@ -179,5 +179,5 @@ void dijkstraPrintPath(const Graph &graph, char from, char destinationNode , boo
             cout << " -> ";
         }
     }
-    cout << endl << "total distance with the recommended path is :" << totaldistance << " meter" << endl;
+    cout << endl << "total distance with the recommended path is :" << totalDistance << endl;
 }

@@ -201,7 +201,7 @@ void AStarprintPath(const Graph &graph, char from, char to, char wolfPosition)
 {
     AstarResult result = AStar(graph, from, to, wolfPosition);
     vector<char> path = result.path;
-    int distance = result.totalWeight;
+    int totalDistance = result.totalWeight;
     
     // check if there is a bath or no
     if(path.empty())
@@ -210,5 +210,14 @@ void AStarprintPath(const Graph &graph, char from, char to, char wolfPosition)
     }
 
     // print output
-    cout << ""
+    cout << "A* recommended path:" << endl;
+    for(int i = 0 ; i < path.size() ; i++)
+    {
+        cout << path[i];
+        if(i < path.size() - 1)
+        {
+            cout << " -> ";
+        }
+    }
+    cout << endl << "total distance with the recommended path is :" << totalDistance << endl;
 }
