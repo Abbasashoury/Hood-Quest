@@ -15,10 +15,22 @@ struct pathFinderResult
 };
 
 // dijkstra function implementation
-dijkstraResult dijkstra(const Graph &graph, char from)
+dijkstraResult dijkstra(const Graph &graph, char from, char wolfposition)
 {
+    // create a new graph to remove the wolf position
+    Graph newgraph;
+
+    // a for loop to copy every node in the new graph except the wolf position
+    for (const auto &node : graph.getAdjList())
+    {
+        if (node.first != wolfposition)
+        {
+            newgraph.addNode(node.first);
+        }
+    }
+
     // get the graph from the getter method
-    const auto &adjList = graph.getAdjList();
+    const auto &adjList = newgraph.getAdjList();
 
     // create two maps to store the distance and the previous node
     map<char, int> distance;  // map for distance
@@ -107,7 +119,7 @@ pathFinderResult pathFinder(const Graph &graph, char from, char destinationNode)
     }
 
     reverse(path.begin(), path.end()); // reverse the path to make prioritization
-    return {path , result.distance[destinationNode]};
+    return {path, result.distance[destinationNode]};
 }
 
 // print path function implementation
@@ -115,8 +127,8 @@ void printPath(const Graph &graph, char from, char destinationNode)
 {
     // initialize the needed variables
     pathFinderResult result = pathFinder(graph, from, destinationNode); // get the pathfinder output
-    const vector<char> &path = result.path; // get the path
-    int totaldistance = result.totalweight; // get the total distance
+    const vector<char> &path = result.path;                             // get the path
+    int totaldistance = result.totalweight;                             // get the total distance
 
     // check if there is a path or no
     if (path.empty())
@@ -135,5 +147,6 @@ void printPath(const Graph &graph, char from, char destinationNode)
             cout << " -> ";
         }
     }
-    cout << endl << "total distance with the recommended path is :" << totaldistance << " meter" << endl;
+    cout << endl
+         << "total distance with the recommended path is :" << totaldistance << " meter" << endl;
 }
