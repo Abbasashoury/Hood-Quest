@@ -15,47 +15,54 @@ struct pathFinderResult
 };
 
 // dijkstra function implementation
-dijkstraResult dijkstra(const Graph &graph, char playerPosition, char wolfposition)
+dijkstraResult dijkstra(const Graph &graph, char from, char wolfposition, bool player)
 {
-    // create a new graph to remove the wolf position
-    Graph newgraph;
+    // assign an adjacecy list
+    const auto &adjList = graph.getAdjList();
 
-    // a for loop to copy every node in the new graph except the wolf position
-    for (const auto &node : graph.getAdjList())
+    // a condition that assign the adj list for the player or wolf
+    if (player)
     {
-        if (node.first != wolfposition)
+        // create a new graph to remove the wolf position
+        Graph newgraph;
+
+        // a for loop to copy every node in the new graph except the wolf position
+        for (const auto &node : graph.getAdjList())
         {
-            newgraph.addNode(node.first);
-        }
-    }
-
-    // a for loop to copy every edge that is not connected to the wolf position
-    for (const auto& node : graph.getAdjList())
-    {
-        char playerPosition = node.first;
-
-        // skip the wolf position node
-        if(playerPosition == wolfposition)
-        {
-            continue;
-        }
-
-        // a second for loop to navigate the vector that contain the edges
-        for(const auto& edge : node.second)
-        {
-            char to = edge.first;
-            int weight = edge.second;
-
-            // skip the nodes that connect to the wolf position
-            if(to != wolfposition)
+            if (node.first != wolfposition)
             {
-                newgraph.addEdge(playerPosition , to , weight);
+                newgraph.addNode(node.first);
             }
         }
-    }
 
-    // get the graph playerPosition the getter method
-    const auto &adjList = newgraph.getAdjList();
+        // a for loop to copy every edge that is not connected to the wolf position
+        for (const auto &node : graph.getAdjList())
+        {
+            char from = node.first;
+
+            // skip the wolf position node
+            if (from == wolfposition)
+            {
+                continue;
+            }
+
+            // a second for loop to navigate the vector that contain the edges
+            for (const auto &edge : node.second)
+            {
+                char to = edge.first;
+                int weight = edge.second;
+
+                // skip the nodes that connect to the wolf position
+                if (to != wolfposition)
+                {
+                    newgraph.addEdge(from, to, weight);
+                }
+            }
+        }
+
+        // get the graph from the getter method
+        const auto &adjList = newgraph.getAdjList();
+    }
 
     // create two maps to store the distance and the previous node
     map<char, int> distance;  // map for distance
@@ -70,11 +77,11 @@ dijkstraResult dijkstra(const Graph &graph, char playerPosition, char wolfpositi
     }
 
     // the source node distance is equall to 0
-    distance[playerPosition] = 0;
+    distance[from] = 0;
 
     // priority queue
     priority_queue<pair<int, char>, vector<pair<int, char>>, greater<pair<int, char>>> pq;
-    pq.push({0, playerPosition}); // push the playerPosition node and the distance to the priority queue
+    pq.push({0, from}); // push the from node and the distance to the priority queue
 
     // dijkstra algorithm loop
     while (!pq.empty())
@@ -117,10 +124,10 @@ dijkstraResult dijkstra(const Graph &graph, char playerPosition, char wolfpositi
 }
 
 // path finder function implementation
-pathFinderResult pathFinder(const Graph &graph, char playerPosition, char destinationNode)
+pathFinderResult pathFinder(const Graph &graph, char from, char destinationNode , bool player)
 {
     // result variable to store and use the dijkstra data
-    dijkstraResult result = dijkstra(graph, playerPosition);
+    dijkstraResult result = dijkstra(graph, from , player);
 
     // check if the result does not exist
     if (result.distance[destinationNode] == INT_MAX)
@@ -128,7 +135,7 @@ pathFinderResult pathFinder(const Graph &graph, char playerPosition, char destin
         return {};
     }
 
-    // create a path playerPosition the previous node
+    // create a path from the previous node
     vector<char> path;
     char current = destinationNode;
 
@@ -136,7 +143,7 @@ pathFinderResult pathFinder(const Graph &graph, char playerPosition, char destin
     while (current != '\0')
     {
         path.push_back(current); // add the current node to the path
-        if (current == playerPosition)     // check if the destination node and the starting node are the same
+        if (current == from) // check if the destination node and the starting node are the same
         {
             break;
         }
@@ -148,12 +155,12 @@ pathFinderResult pathFinder(const Graph &graph, char playerPosition, char destin
 }
 
 // print path function implementation
-void printPath(const Graph &graph, char playerPosition, char destinationNode)
+void printPath(const Graph &graph, char from, char destinationNode , bool player)
 {
     // initialize the needed variables
-    pathFinderResult result = pathFinder(graph, playerPosition, destinationNode); // get the pathfinder output
-    const vector<char> &path = result.path;                             // get the path
-    int totaldistance = result.totalweight;                             // get the total distance
+    pathFinderResult result = pathFinder(graph, from, destinationNode , player); // get the pathfinder output
+    const vector<char> &path = result.path; // get the path
+    int totaldistance = result.totalweight; // get the total distance
 
     // check if there is a path or no
     if (path.empty())
@@ -172,6 +179,5 @@ void printPath(const Graph &graph, char playerPosition, char destinationNode)
             cout << " -> ";
         }
     }
-    cout << endl
-         << "total distance with the recommended path is :" << totaldistance << " meter" << endl;
+    cout << endl << "total distance with the recommended path is :" << totaldistance << " meter" << endl;
 }

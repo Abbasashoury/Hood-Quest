@@ -7,3 +7,4 @@ struct AstarResult
     int totalWeight;
 };
 
+AstarResult AStar(const Graph& graph , char from , char to , char wolfPosition , heuristicFunction heuristic , )
