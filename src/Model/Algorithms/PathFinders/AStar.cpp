@@ -31,7 +31,7 @@ int heuristic(char from, char to)
             {'B', {-2, 4}},
             {'C', {-2, 5}},
             {'D', {-1, 5}},
-            {'E', {-2, 4}},
+            {'E', {-2, 5}},
             {'G', {-3, 3}}
         };
 
@@ -90,7 +90,7 @@ AstarResult AStar(const Graph &graph, char from, char to, char wolfPosition, heu
             int weight = edge.second;
 
             // skip the edges that connect to wolf position
-            if (to != wolfPosition)
+            if (toNode != wolfPosition)
             {
                 newgraph.addEdge(fromNode, toNode, weight);
             }
