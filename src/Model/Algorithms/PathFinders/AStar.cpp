@@ -12,7 +12,7 @@ int heuristic(char from, char to)
 {
     // a map to store the cordinations
     // this cordinates are not accurate
-    map<char, pair<int, int>> nodeCordinates =
+    static const map<char, pair<int, int>> nodeCordinates =
         {
             {'V', {0, 0}},
             {'U', {0, 1}},
