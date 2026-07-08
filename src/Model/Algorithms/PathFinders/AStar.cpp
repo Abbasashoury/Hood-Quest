@@ -160,12 +160,12 @@ AstarResult AStar(const Graph &graph, char from, char to)
     // if there is not any path
     try
     {
-        throw "could not find any path right now";
+        throw runtime_error("could not find any path right now");
     }
 
-    catch (const char *x)
+    catch (runtime_error x)
     {
-        cerr << x << endl;
+        cerr << x.what() << endl;
     }
 
     return {{}, -1};
