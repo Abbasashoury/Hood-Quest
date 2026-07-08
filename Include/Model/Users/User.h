@@ -9,10 +9,11 @@ class User
 {
 private:
     string Username;
-    long int Password;
+    string Password;
     long int Score;
 
 public:
     User();
     ~User();
 };
+#endif USER_H

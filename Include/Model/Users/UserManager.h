@@ -17,3 +17,4 @@ public:
     int SearchUser();
     void PrintScore();
 };
+#endif USERMANAGER_H
