@@ -15,7 +15,9 @@ private:
 public:
     User(string, size_t);
     ~User();
+
     string getUsername() { return Username; }
     size_t getPassword() { return Password; }
+    long int getScore() { return Score; }
 };
 #endif USER_H

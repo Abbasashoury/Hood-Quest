@@ -39,3 +39,14 @@ int Usermanager::SearchUser(const string &username)
         }
     }
 }
+void Usermanager::PrintScore(const string &username)
+{
+    for (int i = 0; i < Users.size(); i++)
+    {
+        if (Users[i].getUsername() == username)
+        {
+            cout << "Score: " << Users[i].getScore() << endl;
+            return;
+        }
+    }
+}

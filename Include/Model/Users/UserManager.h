@@ -17,7 +17,6 @@ public:
     void CreateUser(const string &, const string &);
     bool LoginUser(const string &, const string &);
     int SearchUser(const string &);
-    int SearchUserBST();
-    void PrintScore();
+    void PrintScore(const string &);
 };
 #endif USERMANAGER_H
