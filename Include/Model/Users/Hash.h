@@ -8,6 +8,6 @@ class Hash
 {
 private:
 public:
-    int ConvertToHash(const string &);
+    size_t ConvertToHash(const string &);
 };
 #endif HASH_H

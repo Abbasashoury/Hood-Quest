@@ -9,11 +9,12 @@ class User
 {
 private:
     string Username;
-    string Password;
+    size_t Password;
     long int Score;
 
 public:
-    User();
+    User(string, size_t);
     ~User();
+    string getUsername() { return Username; }
 };
 #endif USER_H

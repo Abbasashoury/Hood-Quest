@@ -1,6 +1,6 @@
 #include "Hash.h"
 
-int ConvertToHash(const string &pass)
+size_t ConvertToHash(const string &pass)
 {
     size_t hash = 0;
     for (char c : pass)
