@@ -51,9 +51,11 @@ bool Move::validMove(const Graph &graph, Player &player, char nextPosition)
 // dice move method implementation
 bool Move::diceMove()
 {
+    // create a random number for the dice
     srand(time(0));
     int number = rand() % 6;
-    if (number == 2 || number == 4 || number == 6)
+    
+    if (number == 0 || number == 2 || number == 4)
     {
         return true;
     }
