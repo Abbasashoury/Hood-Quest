@@ -4,6 +4,9 @@
 #include "CLIView.h"
 #include "InputHandler.h"
 #include "Player.h"
+#include "Dijkstra.h"
+#include "AStar.h"
+
 using namespace std;
 class Gameengine
 {

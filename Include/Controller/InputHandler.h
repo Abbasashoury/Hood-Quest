@@ -10,5 +10,6 @@ private:
 public:
     string MainHandler();
     char CurrentHandler();
+    bool SelectModeofAlghorithms();
 };
 #endif INPUTHANDLER_H
