@@ -9,6 +9,6 @@ class InputHandler
 private:
 public:
     bool MainHandler();
-    void CurrentHandler();
+    char CurrentHandler();
 };
 #endif INPUTHANDLER_H

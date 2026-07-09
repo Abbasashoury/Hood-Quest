@@ -38,3 +38,10 @@ bool InputHandler::MainHandler()
         }
     }
 }
+char InputHandler::CurrentHandler()
+{
+    char node;
+    cin >> node; // take the input from the user
+                 // but cliview only disply the graph and the selection of options
+    return node;
+}
