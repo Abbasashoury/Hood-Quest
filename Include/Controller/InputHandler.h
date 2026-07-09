@@ -8,7 +8,8 @@ class InputHandler
 {
 private:
 public:
-    bool MainHandler();
+    string MainHandler();
     char CurrentHandler();
+    bool SelectModeofAlghorithms();
 };
 #endif INPUTHANDLER_H

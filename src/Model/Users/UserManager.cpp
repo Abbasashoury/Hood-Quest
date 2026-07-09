@@ -7,7 +7,7 @@ void Usermanager::CreateUser(const string &username, const string &pass)
     int flag = -1;
     flag = Usermanager::SearchUser(username);
 
-    // use the flag to see if it should create a new user or no 
+    // use the flag to see if it should create a new user or no
     if (flag = -1)
     {
         // create an object to hash the password
@@ -47,7 +47,6 @@ bool Usermanager::LoginUser(const string &username, const string &pass)
     return false;
 }
 
-
 // search user method implementation
 int Usermanager::SearchUser(const string &username)
 {
@@ -62,6 +61,19 @@ int Usermanager::SearchUser(const string &username)
     }
 }
 
+void Usermanager::ShowLeaderBoard()
+{
+    // sort the users based on their scores in descending order.......
+
+    // print the leaderboard
+    cout << "================== Leaderboard ==================\n";
+    cout << "Rank\t\tUsername\t\tScore\n";
+    for (int i = 0; i < Users.size(); i++)
+    {
+        cout << (i + 1) << "\t" << Users[i].getUsername() << "\t\t" << Users[i].getScore() << "\n";
+    }
+    cout << "=================================================\n";
+}
 // print score function implementation
 void Usermanager::PrintScore(const string &username)
 {
