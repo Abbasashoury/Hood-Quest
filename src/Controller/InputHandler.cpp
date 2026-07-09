@@ -1,6 +1,6 @@
 #include "InputHandler.h"
 
-bool InputHandler::MainHandler()
+string InputHandler::MainHandler()
 {
     Usermanager userManager;
     int choice;
@@ -25,7 +25,7 @@ bool InputHandler::MainHandler()
             if (userManager.LoginUser(username, password))
             {
                 cout << "Login Successful!" << endl;
-                return true;
+                return username;
             }
             else
             {
@@ -34,7 +34,7 @@ bool InputHandler::MainHandler()
             }
         case 3:
             cout << "Exiting the program." << endl;
-            return false;
+            return "Exit";
         }
     }
 }

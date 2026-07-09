@@ -8,7 +8,7 @@ class InputHandler
 {
 private:
 public:
-    bool MainHandler();
+    string MainHandler();
     char CurrentHandler();
 };
 #endif INPUTHANDLER_H

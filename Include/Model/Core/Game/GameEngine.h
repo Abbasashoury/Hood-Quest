@@ -3,6 +3,7 @@
 
 #include "CLIView.h"
 #include "InputHandler.h"
+#include "Player.h"
 using namespace std;
 class Gameengine
 {
