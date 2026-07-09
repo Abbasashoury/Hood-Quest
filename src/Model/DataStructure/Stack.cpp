@@ -7,15 +7,15 @@ bool Stack:: isEmpty() const
 }
 
 // push method implementation
-void Stack:: push(int x)
+void Stack::push(char playerPosition, char wolfPosition)
 {
-    mystack.push_back(x);
+    mystack.push_back({playerPosition, wolfPosition});
 }
 
 // pop method implementation
-int Stack:: pop()
+std::pair<char,char> Stack::pop()
 {
-    int temp;
+    std::pair<char, char> temp;
     temp = mystack.back();
     mystack.pop_back();
     return (temp);
