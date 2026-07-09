@@ -34,6 +34,9 @@ string InputHandler::MainHandler()
                 break;
             }
         case 3:
+            userManager.ShowLeaderBoard();
+            break;
+        case 4:
             cout << "Exiting the program\n";
             return "Exit";
         default:
@@ -46,6 +49,7 @@ char InputHandler::CurrentHandler()
     char node;
     cin >> node; // take the input from the user
                  // but cliview only disply the graph and the selection of options
+                 // name of nude (char) or undo (0)
     return node;
 }
 

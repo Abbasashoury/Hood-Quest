@@ -19,6 +19,7 @@ public:
     bool LoginUser(const string &, const string &); // login method
     int SearchUser(const string &); // a method to search between the users
     void increaseNumofUser(){ Numofuser++; } // increase the number of users 
+    void ShowLeaderBoard(); // show leaderboard method to display the users and their scores
     void PrintScore(const string &); // print score function
 };
 #endif USERMANAGER_H
