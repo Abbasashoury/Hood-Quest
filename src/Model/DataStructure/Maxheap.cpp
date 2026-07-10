@@ -2,9 +2,9 @@
 
 void MaxHeap::heapifyUp(int i)
 {
-    while (i > 0 && heapArr[parent(i)].second < heapArr[i].second)
+    while (i > 0 && heap[parent(i)].second < heap[i].second)
     {
-        swap(heapArr[parent(i)], heapArr[i]);
+        swap(heap[parent(i)], heap[i]);
         i = parent(i);
     }
 }
@@ -15,30 +15,30 @@ void MaxHeap::heapifyDown(int i)
     int left = leftChild(i);
     int right = rightChild(i);
 
-    if (left < (int)heapArr.size() && heapArr[left].second > heapArr[largest].second)
+    if (left < (int)heap.size() && heap[left].second > heap[largest].second)
         largest = left;
 
-    if (right < (int)heapArr.size() && heapArr[right].second > heapArr[largest].second)
+    if (right < (int)heap.size() && heap[right].second > heap[largest].second)
         largest = right;
 
     if (largest != i)
     {
-        swap(heapArr[i], heapArr[largest]);
+        swap(heap[i], heap[largest]);
         heapifyDown(largest);
     }
 }
 
 void MaxHeap::insert(const string &username, long int score)
 {
-    heapArr.push_back({username, score});
-    heapifyUp((int)heapArr.size() - 1);
+    heap.push_back({username, score});
+    heapifyUp((int)heap.size() - 1);
 }
 
 int MaxHeap::search(const string &username) const
 {
-    for (int i = 0; i < (int)heapArr.size(); i++)
+    for (int i = 0; i < (int)heap.size(); i++)
     {
-        if (heapArr[i].first == username)
+        if (heap[i].first == username)
             return i;
     }
     return -1;

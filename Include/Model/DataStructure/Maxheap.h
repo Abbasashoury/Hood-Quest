@@ -9,7 +9,7 @@ using namespace std;
 class MaxHeap
 {
 private:
-    vector<pair<string, long int>> heapArr;
+    vector<pair<string, long int>> heap;
 
     int parent(int i) const { return (i - 1) / 2; }
     int leftChild(int i) const { return 2 * i + 1; }
