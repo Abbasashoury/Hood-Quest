@@ -6,6 +6,8 @@
 #include "Stack.h"
 #include <cstdlib>
 #include <ctime>
+#include <stdexcept>
+#include <iostream>
 
 class GameState
 {
