@@ -53,4 +53,17 @@ char GameState::setPosition()
 // game state constructor implementation
 GameState::GameState(Player &player, Wolf &wolf)
 {
+    // create a variable for faster run time
+    char playerPosition = setPosition();
+    char wolfPosition = setPosition();
+
+    // set wolf and player position
+    player.setPosition(playerPosition);
+    wolf.setPosition(wolfPosition);
+
+    // while loop to compare player and wolf positions
+    while(playerPosition == wolfPosition)
+    {
+        wolf.setPosition(setPosition());
+    }
 }
