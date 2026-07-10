@@ -8,3 +8,9 @@ void MaxHeap::heapifyUp(int i)
         i = parent(i);
     }
 }
+
+void MaxHeap::insert(const string &username, long int score)
+{
+    heapArr.push_back({username, score});
+    heapifyUp((int)heapArr.size() - 1);
+}
