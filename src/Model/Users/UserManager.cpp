@@ -61,11 +61,10 @@ int Usermanager::SearchUser(const string &username)
     }
 }
 
-void Usermanager::ShowLeaderBoard()
+void Usermanager::ShowLeaderBoard() 
 {
-    // sort the users based on their scores in descending order.......
-
     // print the leaderboard
+    // to display all users by rating. Not just the top player.
     cout << "================== Leaderboard ==================\n";
     cout << "Rank\t\tUsername\t\tScore\n";
     for (int i = 0; i < Users.size(); i++)
