@@ -22,9 +22,11 @@ private:
 
     BSTNode *insertHelper(BSTNode *, const string &, long int);
     BSTNode *searchHelper(BSTNode *, const string &) const;
+    void destroyHelper(BSTNode *);
 
 public:
     BST();
+    ~BST();
 
     void insert(const string &, long int);
     BSTNode *search(const string &) const;

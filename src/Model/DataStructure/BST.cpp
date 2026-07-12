@@ -4,6 +4,10 @@ BST::BST()
 {
     root = nullptr;
 }
+BST::~BST()
+{
+    destroyHelper(root);
+}
 
 BSTNode *BST::insertHelper(BSTNode *node, const string &username, long int score)
 {
@@ -27,6 +31,16 @@ BSTNode *BST::searchHelper(BSTNode *node, const string &username) const
         return searchHelper(node->left, username);
 
     return searchHelper(node->right, username);
+}
+
+void BST::destroyHelper(BSTNode *node)
+{
+    if (node == nullptr)
+        return;
+
+    destroyHelper(node->left);
+    destroyHelper(node->right);
+    delete node;
 }
 
 void BST::insert(const string &username, long int score)
