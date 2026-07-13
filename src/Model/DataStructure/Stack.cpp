@@ -1,7 +1,7 @@
 #include <Stack.h>
 
 // isEmpty method implementation
-bool Stack:: isEmpty() const
+bool Stack::isEmpty() const
 {
     return (mystack.size() == 0);
 }
@@ -13,7 +13,7 @@ void Stack::push(char playerPosition, char wolfPosition)
 }
 
 // pop method implementation
-std::pair<char,char> Stack::pop()
+std::pair<char, char> Stack::pop()
 {
     std::pair<char, char> temp;
     temp = mystack.back();

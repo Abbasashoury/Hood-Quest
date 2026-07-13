@@ -4,6 +4,7 @@ BST::BST()
 {
     root = nullptr;
 }
+
 BST::~BST()
 {
     destroyHelper(root);

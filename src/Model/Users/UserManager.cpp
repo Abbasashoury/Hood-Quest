@@ -61,7 +61,7 @@ int Usermanager::SearchUser(const string &username)
     }
 }
 
-void Usermanager::ShowLeaderBoard() 
+void Usermanager::ShowLeaderBoard()
 {
     // print the leaderboard
     // to display all users by rating. Not just the top player.
@@ -69,7 +69,7 @@ void Usermanager::ShowLeaderBoard()
     cout << "Rank\t\tUsername\t\tScore\n";
     for (int i = 0; i < Users.size(); i++)
     {
-        cout << (i + 1) << "\t" << Users[i].getUsername() << "\t\t" << Users[i].getScore() << "\n";
+        cout << (i + 1) << "\t" << Users[i].getUsername() << "\t\t" << Users[i].getUserScore() << "\n";
     }
     cout << "=================================================\n";
 }
@@ -82,7 +82,7 @@ void Usermanager::PrintScore(const string &username)
         // check if the user has been found or no
         if (Users[i].getUsername() == username)
         {
-            cout << "Score: " << Users[i].getScore() << endl;
+            cout << "Score: " << Users[i].getUserScore() << endl;
             return;
         }
     }

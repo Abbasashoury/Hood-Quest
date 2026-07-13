@@ -23,7 +23,7 @@ public:
     int search(const string &) const;
     void updateScore(const string &, long int);
 
-    bool isEmpty() const;
+    bool MaxHeaIssEmpty() const;
     pair<string, long int> getTop() const;
 };
 

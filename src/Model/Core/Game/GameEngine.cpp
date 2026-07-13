@@ -4,27 +4,34 @@ void Gameengine::GameLoop()
 {
     Cliview cli;
     InputHandler input;
-    // Gamestate gamestate;
-    // Move move;
+    Move move;
+
+    Graph graph;
+    Stack stack;
+
     cli.PrintMainMenu();
     string CurrentUser = input.MainHandler();
-    player player1(CurrentUser, 0, 0);
+
+    Player player1(CurrentUser, 'a', 0);
+    Wolf wolf('d');
+    GameState gamestate(player1, wolf);
+
     if (CurrentUser != "Exit")
     {
         bool mode;
         while (true)
         {
-            cli.displayGraph(player1.getPosition(), 'C'); // موقت
+            cli.displayGraph(player1.getPosition(), wolf.getPosition());
             mode = input.SelectModeofAlghorithms();
             switch (mode)
             {
             case true:
                 cout << "Dijkstra selected\n";
-                // dijkstraPrintPath();
+                dijkstraPrintPath(graph, player1.getPosition(), 'V', wolf.getPosition());
                 break;
             case false:
                 cout << "A* selected\n";
-                // AStarprintPath();
+                AStarprintPath(graph, player1.getPosition(), 'V', wolf.getPosition());
                 break;
             default:
                 cout << "Invalid mode selected\n";
@@ -34,7 +41,7 @@ void Gameengine::GameLoop()
             {
             case '0':
                 cout << "Undo selected\n";
-                // gamastate.undo();
+                gamestate.undo(player1, wolf, stack);
                 break;
             case 'A':
             case 'B':
@@ -55,7 +62,7 @@ void Gameengine::GameLoop()
             case 'T':
             case 'U':
             case 'V':
-                // move.moveplayer(graph ,player ,CurrentOrder);
+                move.movePlayer(graph, player1, CurrentOrder);
             default:
                 cout << "Invalid order selected\n";
             }

@@ -3,7 +3,12 @@
 
 #include "CLIView.h"
 #include "InputHandler.h"
+#include "GameState.h"
+#include "Move.h"
 #include "Player.h"
+#include "WOlf.h"
+#include "Graph.h"
+#include "Stack.h"
 #include "Dijkstra.h"
 #include "AStar.h"
 

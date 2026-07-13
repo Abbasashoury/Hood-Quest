@@ -63,10 +63,11 @@ void MaxHeap::updateScore(const string &username, long int newScore)
         heapifyDown(index);
 }
 
-bool MaxHeap::isEmpty() const
+bool MaxHeap::MaxHeaIssEmpty() const
 {
     return heap.empty();
 }
+
 pair<string, long int> MaxHeap::getTop() const
 {
     return heap[0];
