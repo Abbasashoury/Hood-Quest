@@ -5,6 +5,8 @@
 #include "InputHandler.h"
 #include "Player.h"
 #include "Graph.h"
+#include "Stack.h"
+#include "GameState.h"
 #include "WOlf.h"
 #include "Dijkstra.h"
 #include "AStar.h"
