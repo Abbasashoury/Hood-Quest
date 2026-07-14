@@ -18,13 +18,30 @@ void Cliview::PrintScore(string username)
     switch (searchmode)
     {
     case 1:
+    {
         int idx, finalscore;
         idx = usermanager.SearchUser(username);
         finalscore = usermanager.GetUserScore(idx);
         cout << "Score of " << username << ": " << finalscore << endl;
+        break;
+    }
     case 2:
-        
+    {
+        BSTNode *foundNode = bstview.search(username);
+        if (foundNode != nullptr)
+        {
+            cout << "Score of " << username << ": " << foundNode->score << endl;
+        }
+        else
+        {
+            cout << username << " was not found in BST.\n";
+        }
+        break;
+    }
     default:
+    {
         cout << "Invalid mode selected. Defaulting to Linear Search.\n";
+        break;
+    }
     }
 }

@@ -3,11 +3,13 @@
 
 #include <iostream>
 #include "UserManager.h"
+#include "BST.h"
 using namespace std;
 class Cliview
 {
 private:
     Usermanager usermanager;
+    BST bstview;
 
 public:
     void displayGraph(char, char);
