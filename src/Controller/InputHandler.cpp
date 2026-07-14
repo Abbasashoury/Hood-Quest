@@ -34,10 +34,10 @@ string InputHandler::MainHandler()
                 break;
             }
         case 3:
-            // userManager.ShowLeaderBoard();
+            cliinput.PrintLeaderboard();
             break;
         case 4:
-            InputHandler::ScoreUser();
+            // InputHandler::ScoreUser();
             break;
         case 5:
             cout << "Exiting the program\n";
@@ -50,6 +50,7 @@ string InputHandler::MainHandler()
 char InputHandler::CurrentHandler()
 {
     char node;
+    cout << "Which nude do you want to go to (nude name = char) or do you want to return (Undo = 0):\n";
     cin >> node; // take the input from the user
                  // but cliview only disply the graph and the selection of options
                  // name of nude (char) or undo (0)

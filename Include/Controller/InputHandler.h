@@ -3,10 +3,13 @@
 
 #include <iostream>
 #include "UserManager.h"
+#include "CLIView.h"
 using namespace std;
 class InputHandler
 {
 private:
+    Cliview cliinput;
+
 public:
     string MainHandler();
     char CurrentHandler();
