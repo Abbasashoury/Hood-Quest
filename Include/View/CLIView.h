@@ -14,6 +14,7 @@ private:
     MaxHeap maxheapview;
 
 public:
+    void GetColorNude(char, char, char);
     void displayGraph(char, char);
     void PrintMainMenu();
     void PrintLeaderboard();
