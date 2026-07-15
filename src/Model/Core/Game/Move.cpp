@@ -90,18 +90,17 @@ void Move::movePlayer(const Graph &graph, Player &player, Wolf &wolf, char nextP
         char playerPosition = player.getPosition();
         char wolfPosition = wolf.getPosition();
 
-        // create dijkstra related varibles
-        char dijkstraAlgorithm = ' ';
-        char AStarAlgorithm = ' ';
+        // createpath algorithm variable
+        char pathAlgorithm = ' ';
 
         // if condition to check the path is empty or no
         if (path.empty())
         {
-            AStarAlgorithm = path.front();
+            pathAlgorithm = path.front();
         }
 
         // if consition to campare the Blocks
-        if (playerPosition == dijkstraAlgorithm || playerPosition == AStarAlgorithm)
+        if (playerPosition == pathAlgorithm)
         {
             player.addScore(3);
             return;
