@@ -85,6 +85,7 @@ bool reachedDestinatio(Player &player)
     if(player.getPosition() == 'V')
     {
         std::cout << "you reached the grandmother's house" << std::endl;
+        player.addScore(5);
         return true;
     }
     return false;
