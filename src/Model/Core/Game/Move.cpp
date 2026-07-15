@@ -90,14 +90,28 @@ void Move::movePlayer(const Graph &graph, Player &player, Wolf &wolf, char nextP
         char playerPosition = player.getPosition();
         char wolfPosition = wolf.getPosition();
 
-        // check if the player used suggested path or no
-        auto dijkstraResult = pathFinder(graph, playerPosition, 'V', wolfPosition).path.front();
-        auto AStarResult = AStar(graph, playerPosition, 'V', wolfPosition).path.front();
+        // create dijkstra related varibles
+        auto dijkstraResult = pathFinder(graph, playerPosition, 'V', wolfPosition);
         char dijkstraAlgorithm = ' ';
+        
+        // if condition to check the path is empty or no
+        if (!dijkstraResult.path.empty())
+        {
+            dijkstraAlgorithm = dijkstraResult.path.front();
+        }
+
+        // create A* related variable
+        auto astarResult = AStar(graph, playerPosition, 'V', wolfPosition);
         char AStarAlgorithm = ' ';
 
+        // if conditiob to check the path is empty or no
+        if (!astarResult.path.empty())
+        {
+            AStarAlgorithm = astarResult.path.front();
+        }
+
         // if consition to campare the Blocks
-        if(playerPosition == dijkstraAlgorithm || playerPosition == AStarAlgorithm)
+        if (playerPosition == dijkstraAlgorithm || playerPosition == AStarAlgorithm)
         {
             player.addScore(3);
             return;
