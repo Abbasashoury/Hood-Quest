@@ -65,7 +65,7 @@ bool Move::diceMove()
 }
 
 // move player method implementation
-void Move::movePlayer(const Graph &graph, Player &player, char nextPosition)
+void Move::movePlayer(const Graph &graph, Player &player, Wolf &wolf, char nextPosition)
 {
     // an if condition to check that the player can move or no
     if (validMove(graph, player, nextPosition))
@@ -83,6 +83,7 @@ void Move::moveWolf(const Graph &graph, Wolf &wolf, Player &player)
     {
         char nextMove = wolfNextPosition(graph, player.getPosition(), wolf.getPosition());
         wolf.setPosition(nextMove);
+        cout << "wolf moved to " << nextMove << " Block" << endl;
         return;
     }
 }
