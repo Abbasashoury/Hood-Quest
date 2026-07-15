@@ -36,8 +36,6 @@ void Gameengine::GameLoop()
                 cout << "A* selected\n";
                 AStarprintPath(graph, player.getPosition(), 'V', wolf.getPosition());
                 break;
-            default:
-                cout << "Invalid mode selected\n";
             }
             char CurrentOrder = input.CurrentHandler();
             switch (CurrentOrder)
@@ -65,16 +63,16 @@ void Gameengine::GameLoop()
             case 'T':
             case 'U':
             case 'V':
-                // if (move.movePlayer(graph, player, CurrentOrder))
-                // {
-                //     cout << "game is finish.";
-                //     int idx = usermanager.SearchUser(CurrentUser);
-                //     long int newscore = player.getScore() + usermanager.GetUserScore(idx);
-                //     usermanager.SetUserScore(CurrentUser,newscore );
-                //     bst.updateScore(CurrentUser,newscore );
-                //     maxheap.updateScore(CurrentUser,newscore );
-                //     cli.PrintLeaderboard();
-                // }
+                // if (move.movePlayer(graph, player, CurrentOrder)) // This section is not ready yet.
+                {
+                    cout << "game is finish.";
+                    int idx = usermanager.SearchUser(CurrentUser);
+                    long int newscore = player.getScore() + usermanager.GetUserScore(idx);
+                    usermanager.SetUserScore(CurrentUser, newscore);
+                    bst.updateScore(CurrentUser, newscore);
+                    maxheap.updateScore(CurrentUser, newscore);
+                    cli.PrintLeaderboard();
+                }
             default:
                 cout
                     << "Invalid order selected\n";
