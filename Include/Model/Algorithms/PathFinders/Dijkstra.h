@@ -15,9 +15,9 @@ private:
 public:
     struct dijkstraResult; // a struct to store the dijkstra result
     struct pathFinderResult; // a struct to store the path finder result
-    dijkstraResult dijkstraAlgorithm(const Graph &, char, bool); // dijkstra function to make the distances table
-    pathFinderResult pathFinder(const Graph &, char, char, bool); // path finder function to find the shortest path
-    void dijkstraPrintPath(const Graph &, char, char, bool); // a function to print the path in terminal
+    dijkstraResult dijkstraAlgorithm(const Graph &, char, char); // dijkstra function to make the distances table
+    pathFinderResult pathFinder(const Graph &, char, char, char); // path finder function to find the shortest path
+    void dijkstraPrintPath(const Graph &, char, char, char); // a function to print the path in terminal
 };
 
 #endif DIJKSTRA_H

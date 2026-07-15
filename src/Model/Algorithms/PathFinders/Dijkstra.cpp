@@ -1,21 +1,21 @@
 #include "Dijkstra.h"
 
 // dijkstra result struct implementation
-struct dijkstraResult
+struct dijkstra::dijkstraResult
 {
     map<char, int> distance;
     map<char, char> previous;
 };
 
 // path finder result struct implementation
-struct pathFinderResult
+struct dijkstra::pathFinderResult
 {
     vector<char> path;
     int totalweight;
 };
 
-// dijkstra function implementation
-dijkstraResult dijkstraAlgorithm(const Graph &graph, char from, char wolfPosition)
+// dijkstra algorithm function implementation
+dijkstra::dijkstraResult dijkstra::dijkstraAlgorithm(const Graph &graph, char from, char wolfPosition)
 {
     // create a new graph to remove the wolf position
     Graph newgraph;
@@ -131,7 +131,7 @@ dijkstraResult dijkstraAlgorithm(const Graph &graph, char from, char wolfPositio
 }
 
 // path finder function implementation
-pathFinderResult pathFinder(const Graph &graph, char from, char destinationNode, char wolfPosition)
+dijkstra::pathFinderResult dijkstra::pathFinder(const Graph &graph, char from, char destinationNode, char wolfPosition)
 {
     // result variable to store and use the dijkstra data
     dijkstraResult result = dijkstraAlgorithm(graph, from, wolfPosition);
@@ -162,7 +162,7 @@ pathFinderResult pathFinder(const Graph &graph, char from, char destinationNode,
 }
 
 // print path function implementation
-void dijkstraPrintPath(const Graph &graph, char from, char destinationNode, char wolfPosition)
+void dijkstra::dijkstraPrintPath(const Graph &graph, char from, char destinationNode, char wolfPosition)
 {
     // initialize the needed variables
     pathFinderResult result = pathFinder(graph, from, destinationNode, wolfPosition); // get the pathfinder output
