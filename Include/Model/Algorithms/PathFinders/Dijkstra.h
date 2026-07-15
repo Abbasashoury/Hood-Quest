@@ -20,8 +20,8 @@ public:
     struct pathFinderResult; // a struct to store the path finder result
     dijkstraResult dijkstraAlgorithm(const Graph &, char, char); // dijkstra function to make the distances table
     pathFinderResult pathFinder(const Graph &, char, char, char); // path finder function to find the shortest path
-    vector<char> getPath() const; // a getter method to return the suggested path
     void dijkstraPrintPath(const Graph &, char, char, char); // a function to print the path in terminal
+    vector<char> getPath() const; // a getter method to return the suggested path
 };
 
 #endif DIJKSTRA_H
