@@ -79,7 +79,7 @@ bool Move::diceMove()
 }
 
 // move player method implementation
-void Move::movePlayer(const Graph &graph, Player &player, Wolf &wolf, char nextPosition)
+void Move::movePlayer(const Graph &graph, Player &player, Wolf &wolf, char nextPosition, const vector<char> path)
 {
     // an if condition to check that the player can move or no
     if (validMove(graph, player, wolf, nextPosition))
@@ -94,6 +94,11 @@ void Move::movePlayer(const Graph &graph, Player &player, Wolf &wolf, char nextP
         char dijkstraAlgorithm = ' ';
         char AStarAlgorithm = ' ';
 
+        // if condition to check the path is empty or no
+        if (path.empty())
+        {
+            AStarAlgorithm = path.front();
+        }
 
         // if consition to campare the Blocks
         if (playerPosition == dijkstraAlgorithm || playerPosition == AStarAlgorithm)
