@@ -11,7 +11,7 @@ void Player::setPlayer(std::string name, char position, int score)
 {
     setName(name);
     setPosition(position);
-    setScore(score);
+    setScore();
 }
 
 // name setter method implementation
@@ -27,9 +27,9 @@ void Player::setPosition(char Position)
 }
 
 // score setter implementation
-void Player::setScore(int score)
+void Player::setScore()
 {
-    playerScore = score;
+    playerScore = 0;
 }
 
 // Player add score method implementation

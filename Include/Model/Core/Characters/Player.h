@@ -12,7 +12,7 @@ private:
 
     void setPlayer(std::string, char, int); // setter method to initialize the variables
     void setName(std::string);              // setter method for player name
-    void setScore(int);                     // setter method for player score
+    void setScore();                     // setter method for player score
 
 public:
     Player(std::string, char, int); // player class constructor
