@@ -3,6 +3,11 @@
 void save(const Usermanager &usermanager, const string &file)
 {
     ofstream ofs(file);
+    if (!ofs)
+    {
+        cerr << "Could not open file for save: " << file << endl;
+        return;
+    }
 
     for (int i = 0; i < usermanager.Users.size(); i++)
     {
@@ -17,7 +22,12 @@ void save(const Usermanager &usermanager, const string &file)
 void load(Usermanager &usermanager, const string &file)
 {
     ifstream ifs(file);
-
+    if (!ifs)
+    {
+        cerr << "Could not open file for load: " << file << endl;
+        return;
+    }
+    
     usermanager.Users.clear();
     usermanager.Numofuser = 0;
 
