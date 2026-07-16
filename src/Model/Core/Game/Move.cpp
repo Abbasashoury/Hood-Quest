@@ -79,7 +79,7 @@ bool Move::diceMove()
 }
 
 // move player method implementation
-void Move::movePlayer(const Graph &graph, Player &player, Wolf &wolf, char nextPosition, const vector<char> path)
+bool Move::movePlayer(const Graph &graph, Player &player, Wolf &wolf, char nextPosition, const vector<char> path)
 {
     // an if condition to check that the player can move or no
     if (validMove(graph, player, wolf, nextPosition))
@@ -103,13 +103,14 @@ void Move::movePlayer(const Graph &graph, Player &player, Wolf &wolf, char nextP
         if (playerPosition == pathAlgorithm)
         {
             player.addScore(3);
-            return;
+            return true;
         }
 
         // when the player does not use the suggested path
         player.addScore(1);
-        return;
+        return true;
     }
+    return false;
 }
 
 // move wolf mathod implemenation

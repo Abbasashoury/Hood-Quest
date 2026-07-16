@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <string>
+
+#include "UserManager.h"
 using namespace std;
 
 class User
@@ -17,8 +19,8 @@ public:
     ~User();
 
     void SetScore(long int score) { Score = score; }
-    string getUsername() { return Username; }
-    size_t getPassword() { return Password; }
-    long int getCurrentScore() { return Score; }
+    string getUsername() const { return Username; }
+    size_t getPassword() const { return Password; }
+    long int getCurrentScore() const { return Score; }
 };
 #endif USER_H

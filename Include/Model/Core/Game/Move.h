@@ -19,7 +19,7 @@ private:
     bool diceMove(); // dice simulator method for wolf move
 
 public:
-    void movePlayer(const Graph &, Player &, Wolf &, char, const vector<char>); // move player method
+    bool movePlayer(const Graph &, Player &, Wolf &, char, const vector<char>); // move player method
     void moveWolf(const Graph &, Wolf & , Player &); // move wolf method
 };
 

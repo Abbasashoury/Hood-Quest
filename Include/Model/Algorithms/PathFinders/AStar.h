@@ -6,6 +6,8 @@
 #include <vector>
 #include <queue>
 #include <cmath>
+#include <algorithm>
+#include <climits>
 #include <exception>
 #include <iostream>
 

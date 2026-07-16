@@ -5,12 +5,15 @@ void Gameengine::GameLoop()
     Cliview cli;
     InputHandler input;
     Move move;
+    Usermanager usermanager;
 
     Graph graph;
     Stack stack;
-    Usermanager usermanager;
     BST bst;
     MaxHeap maxheap;
+
+    dijkstra dijkstraa;
+    AStar astar;
 
     cli.PrintMainMenu();
     string CurrentUser = input.MainHandler();
@@ -22,6 +25,7 @@ void Gameengine::GameLoop()
     if (CurrentUser != "Exit")
     {
         bool mode;
+        vector<char> path;
         while (true)
         {
             cli.displayGraph(player.getPosition(), wolf.getPosition());
@@ -30,11 +34,13 @@ void Gameengine::GameLoop()
             {
             case true:
                 cout << "Dijkstra selected\n";
-                dijkstraPrintPath(graph, player.getPosition(), 'V', wolf.getPosition());
+                dijkstraa.dijkstraPrintPath(graph, player.getPosition(), 'V', wolf.getPosition());
+                path = dijkstraa.getPath();
                 break;
             case false:
                 cout << "A* selected\n";
-                AStarprintPath(graph, player.getPosition(), 'V', wolf.getPosition());
+                astar.AStarprintPath(graph, player.getPosition(), 'V', wolf.getPosition());
+                path = astar.getPath();
                 break;
             }
             char CurrentOrder = input.CurrentHandler();
@@ -63,15 +69,24 @@ void Gameengine::GameLoop()
             case 'T':
             case 'U':
             case 'V':
-                // if (move.movePlayer(graph, player, CurrentOrder)) // This section is not ready yet.
+                if (move.movePlayer(graph, player, wolf, CurrentOrder, path))
                 {
-                    cout << "game is finish.";
-                    int idx = usermanager.SearchUser(CurrentUser);
-                    long int newscore = player.getScore() + usermanager.GetUserScore(idx);
-                    usermanager.SetUserScore(CurrentUser, newscore);
-                    bst.updateScore(CurrentUser, newscore);
-                    maxheap.updateScore(CurrentUser, newscore);
-                    cli.PrintLeaderboard();
+                    if (gamestate.reachedDestinatio(player) || gamestate.wolfBlock(player, wolf))
+                    {
+                        cout << "game is finish.";
+                        int idx = usermanager.SearchUser(CurrentUser);
+                        long int newscore = player.getScore() + usermanager.GetUserScore(idx);
+
+                        usermanager.SetUserScore(CurrentUser, newscore);
+                        bst.updateScore(CurrentUser, newscore);
+                        maxheap.updateScore(CurrentUser, newscore);
+
+                        cli.PrintLeaderboard();
+                        return;
+                    }
+                    
+                    cout << "The move was successful.\n";
+                    break;
                 }
             default:
                 cout
