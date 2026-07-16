@@ -4,7 +4,6 @@
 #include <iostream>
 #include <string>
 
-#include "UserManager.h"
 using namespace std;
 
 class User

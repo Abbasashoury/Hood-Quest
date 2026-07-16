@@ -1,16 +1,22 @@
 #include "GameEngine.h"
+#include "SaveLoadManager.h"
 
 void Gameengine::GameLoop()
 {
-    Cliview cli;
-    InputHandler input;
-    Move move;
     Usermanager usermanager;
 
+    load(usermanager, "save.txt");
+
+    BST &bst = usermanager.GetBST();
+    MaxHeap &maxheap = usermanager.GetMaxHeap();
+
+    Cliview cli(usermanager, maxheap);
+    InputHandler input(usermanager, bst, cli);
+    cli.SetInputHandler(input);
+
+    Move move;
     Graph graph;
     Stack stack;
-    BST bst;
-    MaxHeap maxheap;
 
     dijkstra dijkstraa;
     AStar astar;
@@ -81,10 +87,12 @@ void Gameengine::GameLoop()
                         bst.updateScore(CurrentUser, newscore);
                         maxheap.updateScore(CurrentUser, newscore);
 
+                        save(usermanager, "save.txt");
+
                         cli.PrintLeaderboard();
                         return;
                     }
-                    
+
                     cout << "The move was successful.\n";
                     break;
                 }

@@ -3,16 +3,18 @@
 
 #include <iostream>
 #include "UserManager.h"
-#include "InputHandler.h"
-#include "BST.h"
 #include "Maxheap.h"
 using namespace std;
+
+class InputHandler;
+
 class Cliview
 {
 private:
-    Usermanager usermanager;
-    InputHandler inputhandler;
-    MaxHeap maxheapview;
+    Usermanager &usermanager;
+    MaxHeap &maxheapview;
+
+    InputHandler *inputhandler = nullptr;
 
     const string RESET = "\033[0m";
     const string RED = "\033[1;31m";
@@ -22,10 +24,14 @@ private:
     string GetColorNude(char, char, char);
 
 public:
+    Cliview(Usermanager &usermanager, MaxHeap &maxheap);
+
+    void SetInputHandler(InputHandler &handler) { inputhandler = &handler; }
+
     void displayGraph(char, char);
     void PrintMainMenu();
     void PrintLeaderboard();
     void PrintScore();
 };
 
-#endif CLIVIEW_H
+#endif

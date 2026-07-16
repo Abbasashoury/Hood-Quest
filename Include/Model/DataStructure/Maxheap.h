@@ -25,6 +25,7 @@ public:
 
     bool MaxHeaIssEmpty() const;
     pair<string, long int> getTop() const;
+    void clear();
 };
 
 #endif

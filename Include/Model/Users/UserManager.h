@@ -6,7 +6,7 @@
 #include "User.h"
 #include "Hash.h"
 #include "BST.h"
-#include "SaveLoadManager.h"
+#include "Maxheap.h"
 
 using namespace std;
 
@@ -15,6 +15,7 @@ class Usermanager
 private:
     vector<User> Users;
     BST bstuser;
+    MaxHeap maxheapuser;
     int Numofuser = 0;
 
     friend void save(const Usermanager &, const string &);
@@ -25,8 +26,11 @@ public:
     bool LoginUser(const string &, const string &);  // login method
     int SearchUser(const string &);                  // a method to search between the users
     void SetUserScore(const string &, long int);
-    
+
     long int GetUserScore(int idx) { Users[idx].getCurrentScore(); }
     void increaseNumofUser() { Numofuser++; } // increase the number of users
+
+    BST &GetBST() { return bstuser; }
+    MaxHeap &GetMaxHeap() { return maxheapuser; }
 };
 #endif USERMANAGER_H

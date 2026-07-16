@@ -1,4 +1,8 @@
-#include "Cliview.h"
+#include "CLIView.h"
+#include "InputHandler.h"
+
+Cliview::Cliview(Usermanager &usermanager, MaxHeap &maxheap)
+    : usermanager(usermanager), maxheapview(maxheap) {}
 
 void Cliview::PrintMainMenu()
 {
@@ -16,7 +20,15 @@ void Cliview::PrintScore() // display the score of a desired player with linear 
     int searchmode;
     cout << "please select an mode: Linear Search (1) or BST Search (2)\n";
     cin >> searchmode;
-    inputhandler.ScoreUser(searchmode);
+
+    if (inputhandler != nullptr)
+    {
+        inputhandler->ScoreUser(searchmode);
+    }
+    else
+    {
+        cout << "InputHandler is not connected to this view yet.\n";
+    }
 }
 
 void Cliview::PrintLeaderboard()
