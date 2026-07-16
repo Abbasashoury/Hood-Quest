@@ -82,7 +82,7 @@ void Gameengine::GameLoop()
                         maxheap.updateScore(CurrentUser, newscore);
 
                         cli.PrintLeaderboard();
-                        exit;
+                        return;
                     }
                     
                     cout << "The move was successful.\n";
