@@ -15,4 +15,4 @@ public:
     std::pair<char,char> pop(); // a method to remove the last thing that has been add to the stack
 };
 
-#endif STACK_H
+#endif

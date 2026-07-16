@@ -20,4 +20,4 @@ public:
     const  map<char, vector<pair<char, int>>>& getAdjList () const ; // adjacency list getter method
 };
 
-#endif GRAPH_H
+#endif

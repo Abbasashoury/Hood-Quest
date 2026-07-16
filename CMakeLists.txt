@@ -71,8 +71,8 @@ target_include_directories(Hood_Quest
     ${INCLUDE_DIR}
     ${INCLUDE_DIR}/Controller
     ${INCLUDE_DIR}/Model
-    ${INCLUDE_DIR}/Model/Algorithm
-    ${INCLUDE_DIR}/Model/Algorithm/PathFinders
+    ${INCLUDE_DIR}/Model/Algorithms
+    ${INCLUDE_DIR}/Model/Algorithms/PathFinders
     ${INCLUDE_DIR}/Model/Core
     ${INCLUDE_DIR}/Model/Core/Characters
     ${INCLUDE_DIR}/Model/Core/Game
