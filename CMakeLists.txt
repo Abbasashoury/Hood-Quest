@@ -33,7 +33,7 @@ ${SOURCE_DIR}/Model/Users/UserManager.cpp
 ${SOURCE_DIR}/view/CLIView.cpp
 )
 
-#initialize the haeder files
+# initialize the haeder files
 set(HEADERS
 ${INCLUDE_DIR}/Controller/InputHandler.h
 ${INCLUDE_DIR}/Controller/SaveLoadManager.h
@@ -53,4 +53,13 @@ ${INCLUDE_DIR}/Model/Users/Hash.h
 ${INCLUDE_DIR}/Model/Users/User.h
 ${INCLUDE_DIR}/Model/Users/UserManager.h
 ${INCLUDE_DIR}/view/CLIView.h
+)
+
+# create the executable file
+add_executable(Hood_Quest ${SOURCES} ${HEADERS})
+
+# add header pathes for the compiler
+target_include_directories(my_program 
+    PRIVATE 
+    ${INCLUDE_DIR}
 )
