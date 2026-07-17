@@ -8,7 +8,7 @@ void Usermanager::CreateUser(const string &username, const string &pass)
     flag = Usermanager::SearchUser(username);
 
     // use the flag to see if it should create a new user or no
-    if (flag = -1)
+    if (flag ==  -1)
     {
         // create an object to hash the password
         Hash hasher;
@@ -18,6 +18,7 @@ void Usermanager::CreateUser(const string &username, const string &pass)
         User TempUser(username, HPass);
         Users.push_back(TempUser);
         bstuser.insert(username, 0);
+        maxheapuser.insert(username , 0);
 
         // increase the number of users
         Usermanager::increaseNumofUser();
@@ -52,7 +53,7 @@ bool Usermanager::LoginUser(const string &username, const string &pass)
 int Usermanager::SearchUser(const string &username)
 {
     // a for loop to navigate every user
-    for (int i = 0; i < Users.size(); i++)
+    for (size_t i = 0; i < Users.size(); i++)
     {
         // check every user
         if (Users[i].getUsername() == username)
@@ -60,6 +61,7 @@ int Usermanager::SearchUser(const string &username)
             return i;
         }
     }
+    return -1;
 }
 
 void Usermanager::SetUserScore(const string &username, long int score)
