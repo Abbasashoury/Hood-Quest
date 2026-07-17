@@ -97,12 +97,6 @@ AStar::AstarResult AStar::AStarAlgorithm(const Graph &graph, char from, char to,
         int currentFScore = pq.top().first;
         pq.pop();
 
-        // ignore the wolf position
-        if(currentNode == wolfPosition)
-        {
-            continue;
-        }
-
         // skip the repeated nodes
         if (currentFScore > fScore[currentNode])
         {

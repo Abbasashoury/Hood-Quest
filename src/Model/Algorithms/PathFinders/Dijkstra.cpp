@@ -46,12 +46,6 @@ dijkstra::dijkstraResult dijkstra::dijkstraAlgorithm(const Graph &graph, char fr
         char currentNode = pq.top().second;
         pq.pop();
 
-        // ignore the wolf position
-        if(currentNode == wolfPosition)
-        {
-            continue;
-        }
-
         // ignore the old inputs
         if (currentDistance > distance[currentNode])
         {
