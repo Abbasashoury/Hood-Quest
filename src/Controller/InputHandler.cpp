@@ -26,7 +26,7 @@ string InputHandler::MainHandler()
                 cout << "Login Successful!\n";
                 return username;
             }
-            
+
             cerr << "Auto login failed please login manually!\n";
             break;
         case 2:
@@ -41,7 +41,8 @@ string InputHandler::MainHandler()
             }
             else
             {
-                cout << "Login Failed!\n" << endl;
+                cout << "Login Failed!\n"
+                     << endl;
                 break;
             }
         case 3:
@@ -61,10 +62,10 @@ string InputHandler::MainHandler()
 char InputHandler::CurrentHandler()
 {
     char node;
-    cout << "Which nude do you want to go to (nude name = char) or do you want to return (Undo = 0):\n";
+    cout << "Which node do you want to go to (node name = char) or do you want to return (Undo = 0):\n";
     cin >> node; // take the input from the user
                  // but cliview only disply the graph and the selection of options
-                 // name of nude (char) or undo (0)
+                 // name of node (char) or undo (0)
 
     // if the input was not valid
     if (cin.fail())
@@ -72,7 +73,7 @@ char InputHandler::CurrentHandler()
         cin.clear();
         cin.ignore(1000, '\n');
         cout << "Invalid input! Please enter a character.\n";
-        return '\0';  // invalid value
+        return '\0'; // invalid value
     }
     return node;
 }

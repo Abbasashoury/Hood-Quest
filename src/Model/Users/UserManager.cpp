@@ -18,7 +18,6 @@ void Usermanager::CreateUser(const string &username, const string &pass)
         User TempUser(username, HPass);
         Users.push_back(TempUser);
         bstuser.insert(username, 0);
-        maxheapuser.insert(username, 0);
 
         // increase the number of users
         Usermanager::increaseNumofUser();

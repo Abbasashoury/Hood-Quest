@@ -21,7 +21,7 @@ private:
     const string BLUE = "\033[1;34m";
     const string WHITE = "\033[1;37m";
 
-    string GetColorNude(char, char, char);
+    string GetColorNode(char, char, char);
 
 public:
     Cliview(Usermanager &usermanager, MaxHeap &maxheap);

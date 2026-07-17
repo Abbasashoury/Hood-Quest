@@ -38,17 +38,17 @@ void Cliview::PrintLeaderboard()
     cout << " The name of top user is " << maxuser.first << "and its score: " << maxuser.second << endl;
 }
 
-string Cliview::GetColorNude(char currentNude, char playerpos, char wolfpos)
+string Cliview::GetColorNode(char currentNode, char playerpos, char wolfpos)
 {
-    if (currentNude == playerpos)
+    if (currentNode == playerpos)
     {
-        return RED + "(" + currentNude + ")" + RESET;
+        return RED + "(" + currentNode + ")" + RESET;
     }
-    else if (currentNude == wolfpos)
+    else if (currentNode == wolfpos)
     {
-        return BLUE + "(" + currentNude + ")" + RESET;
+        return BLUE + "(" + currentNode + ")" + RESET;
     }
-    return WHITE + "(" + currentNude + ")" + RESET;
+    return WHITE + "(" + currentNode + ")" + RESET;
 }
 
 void Cliview::displayGraph(char playerpos, char wolfpos)
@@ -64,26 +64,26 @@ void Cliview::displayGraph(char playerpos, char wolfpos)
          << "   " << BLUE << "[Wolf: " << wolfpos << "]" << RESET << "\n";
     cout << "===========================================================\n\n";
 
-    cout << "     " << GetColorNude('B', playerpos, wolfpos) << "----------2----------" << GetColorNude('C', playerpos, wolfpos) << "----------5----------" << GetColorNude('D', playerpos, wolfpos) << "\n";
+    cout << "     " << GetColorNode('B', playerpos, wolfpos) << "----------2----------" << GetColorNode('C', playerpos, wolfpos) << "----------5----------" << GetColorNode('D', playerpos, wolfpos) << "\n";
     cout << "      /                                                \\\n";
     cout << "     3                                                  1\n";
     cout << "    /                                                    \\\n";
-    cout << " " << GetColorNude('A', playerpos, wolfpos) << "-------6------" << GetColorNude('F', playerpos, wolfpos) << "---------4----------" << GetColorNude('G', playerpos, wolfpos) << "-------3------" << GetColorNude('E', playerpos, wolfpos) << "\n";
+    cout << " " << GetColorNode('A', playerpos, wolfpos) << "-------6------" << GetColorNode('F', playerpos, wolfpos) << "---------4----------" << GetColorNode('G', playerpos, wolfpos) << "-------3------" << GetColorNode('E', playerpos, wolfpos) << "\n";
     cout << "                  /                      |  \\\n";
     cout << "                 6                       5   4\n";
     cout << "                /                        |    \\\n";
-    cout << "              " << GetColorNude('J', playerpos, wolfpos) << "-----3-----" << GetColorNude('K', playerpos, wolfpos) << "----2----" << GetColorNude('W', playerpos, wolfpos) << "-3-" << GetColorNude('M', playerpos, wolfpos) << "\n";
+    cout << "              " << GetColorNode('J', playerpos, wolfpos) << "-----3-----" << GetColorNode('K', playerpos, wolfpos) << "----2----" << GetColorNode('W', playerpos, wolfpos) << "-3-" << GetColorNode('M', playerpos, wolfpos) << "\n";
     cout << "               \\              \\               /\n";
     cout << "                5              3             1\n";
     cout << "                 \\              \\           /\n";
-    cout << "   " << GetColorNude('O', playerpos, wolfpos) << "-----3-----" << GetColorNude('P', playerpos, wolfpos) << "-----1-----" << GetColorNude('R', playerpos, wolfpos) << "---2---" << GetColorNude('S', playerpos, wolfpos) << "\n";
+    cout << "   " << GetColorNode('O', playerpos, wolfpos) << "-----3-----" << GetColorNode('P', playerpos, wolfpos) << "-----1-----" << GetColorNode('R', playerpos, wolfpos) << "---2---" << GetColorNode('S', playerpos, wolfpos) << "\n";
     cout << "     \\                          |          \\\n";
     cout << "      2                         4           6\n";
     cout << "       \\                        |            \\\n";
-    cout << "       " << GetColorNude('Q', playerpos, wolfpos) << "-----------5---------" << GetColorNude('T', playerpos, wolfpos) << "-----2-----" << GetColorNude('U', playerpos, wolfpos) << "\n";
+    cout << "       " << GetColorNode('Q', playerpos, wolfpos) << "-----------5---------" << GetColorNode('T', playerpos, wolfpos) << "-----2-----" << GetColorNode('U', playerpos, wolfpos) << "\n";
     cout << "         \\                                    /\n";
     cout << "          5                                  3\n";
     cout << "           \\                                /\n";
-    cout << "            \\--------------" << GetColorNude('V', playerpos, wolfpos) << "-------------/\n\n";
+    cout << "            \\--------------" << GetColorNode('V', playerpos, wolfpos) << "-------------/\n\n";
     cout << "===========================================================\n";
 }
