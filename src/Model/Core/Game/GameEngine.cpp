@@ -100,6 +100,26 @@ void gameEngine::GameLoop()
                     }
 
                     cout << "The move was successful.\n";
+                    
+                    // wolf movment
+                    move.moveWolf(graph, wolf, player);
+                    if(gamestate.wolfBlock(player , wolf))
+                    {
+                        cout << "============ GAME OVER+++++++++++++++++++\n";
+                        cout << "The wolf caught You!\n";
+
+                        // calculate the total score and save it
+                        int idx = usermanager.SearchUser(CurrentUser);
+                        long int newscore = player.getScore() + usermanager.GetUserScore(idx);
+                        usermanager.SetUserScore(CurrentUser, newscore);
+                        bst.updateScore(CurrentUser, newscore);
+                        maxheap.updateScore(CurrentUser, newscore);
+                        save(usermanager, "..\\src\\Controller\\save.txt");
+
+                        cli.PrintLeaderboard();
+                        return;
+                    }
+
                     break;
                 }
                 break;

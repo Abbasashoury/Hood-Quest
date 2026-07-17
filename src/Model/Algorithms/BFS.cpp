@@ -93,7 +93,7 @@ char wolfNextPosition(const Graph &graph, char playerPosition, char wolfPosition
     vector<char> path = BFS(graph, playerPosition, wolfPosition);
 
     // if there is not any way
-    if (path.empty())
+    if (path.empty() || path.size() == 1)
     {
         return wolfPosition;
     }

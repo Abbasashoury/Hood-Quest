@@ -3,66 +3,20 @@
 // set position method implementation
 char GameState::getRandomNode()
 {
-    // create a random number
-    srand(time(0));
-    int number = rand() % 18;
-    // return a node using the random number
-    switch (number)
-    {
-    case 0:
-        return 'A';
-    case 1:
-        return 'B';
-    case 2:
-        return 'C';
-    case 3:
-        return 'D';
-    case 4:
-        return 'E';
-    case 5:
-        return 'F';
-    case 6:
-        return 'G';
-    case 7:
-        return 'J';
-    case 8:
-        return 'K';
-    case 9:
-        return 'W';
-    case 10:
-        return 'M';
-    case 11:
-        return 'O';
-    case 12:
-        return 'P';
-    case 13:
-        return 'R';
-    case 14:
-        return 'S';
-    case 15:
-        return 'Q';
-    case 16:
-        return 'T';
-    case 17:
-        return 'U';
-    default:
-        return '?';
-    }
+    char nodes[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'J', 'K', 'W', 'M', 'O', 'P', 'R', 'S', 'Q', 'T', 'U'};
+    int randomNumber = rand() % 18;
+    return nodes[randomNumber];
 }
 
 // game state constructor implementation
 GameState::GameState(Player &player, Wolf &wolf)
 {
-    // create a variable for faster run time
-    char playerPosition = getRandomNode();
-    char wolfPosition = getRandomNode();
-
     // set wolf and player position
-    player.setPosition(playerPosition);
-    wolf.setPosition(wolfPosition);
+    player.setPosition(getRandomNode());
+    wolf.setPosition(getRandomNode());
 
     // while loop to compare player and wolf positions
-    while (playerPosition == wolfPosition)
+    while (player.getPosition() == wolf.getPosition())
     {
         wolf.setPosition(getRandomNode());
     }
@@ -71,7 +25,7 @@ GameState::GameState(Player &player, Wolf &wolf)
 // wolf block method implementation
 bool GameState::wolfBlock(Player &player, Wolf &wolf)
 {
-    if(player.getPosition() == wolf.getPosition())
+    if (player.getPosition() == wolf.getPosition())
     {
         std::cout << "The wolf caught you" << std::endl;
         return true;
@@ -82,7 +36,7 @@ bool GameState::wolfBlock(Player &player, Wolf &wolf)
 // reached destination method implementation
 bool GameState::reachedDestination(Player &player)
 {
-    if(player.getPosition() == 'V')
+    if (player.getPosition() == 'V')
     {
         std::cout << "you reached the grandmother's house" << std::endl;
         player.addScore(5);
