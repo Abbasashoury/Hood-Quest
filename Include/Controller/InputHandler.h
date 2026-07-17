@@ -20,7 +20,6 @@ public:
 
     string MainHandler();
     string CurrentHandler();
-    bool SelectModeofAlghorithms();
     void ScoreUser(int); // We get both the username and the search type
 };
 #endif

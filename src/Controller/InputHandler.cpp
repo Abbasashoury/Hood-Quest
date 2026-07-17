@@ -63,7 +63,9 @@ string InputHandler::CurrentHandler()
 {
     string order;
     cout << "destination node (Type node name).\n"
-         << "Undo (Type Undo).\n";
+         << "Undo (Type Undo).\n"
+         << "Exit (Type Exit).\n"
+         << "select the algorithm (Type Dijk for Dijkstra or Astar for A*).\n";
 
     cin >> order; // take the input from the user
                   // but cliview only disply the graph and the selection of options
@@ -78,25 +80,6 @@ string InputHandler::CurrentHandler()
         return '\0'; // invalid value
     }
     return order;
-}
-
-bool InputHandler::SelectModeofAlghorithms()
-{
-    char mode;
-    cout << "Select the mode of algorithms: Dijkstra: D or A*: A\n";
-    cin >> mode;
-    switch (mode)
-    {
-    case 'D':
-    case 'd':
-        return true; // Dijkstra mode
-    case 'A':
-    case 'a':
-        return false; // A* mode
-    default:
-        cout << "Invalid mode selected. Defaulting to Dijkstra.\n";
-        return true; // Default to Dijkstra
-    }
 }
 
 void InputHandler::ScoreUser(int searchmode)
