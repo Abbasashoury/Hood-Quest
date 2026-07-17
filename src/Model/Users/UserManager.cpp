@@ -8,7 +8,7 @@ void Usermanager::CreateUser(const string &username, const string &pass)
     flag = Usermanager::SearchUser(username);
 
     // use the flag to see if it should create a new user or no
-    if (flag ==  -1)
+    if (flag == -1)
     {
         // create an object to hash the password
         Hash hasher;
@@ -18,13 +18,16 @@ void Usermanager::CreateUser(const string &username, const string &pass)
         User TempUser(username, HPass);
         Users.push_back(TempUser);
         bstuser.insert(username, 0);
-        maxheapuser.insert(username , 0);
+        maxheapuser.insert(username, 0);
 
         // increase the number of users
         Usermanager::increaseNumofUser();
         cout << "User Created Successfully!" << endl;
     }
-    cout << "User Already Exists!" << endl;
+    else
+    {
+        cout << "User Already Exists!" << endl;
+    }
 }
 
 // login user method implementation
@@ -36,6 +39,13 @@ bool Usermanager::LoginUser(const string &username, const string &pass)
 
     // search the user in system
     int index = Usermanager::SearchUser(username);
+
+    // return false if the user does not exist
+    if (index == -1)
+    {
+        cerr << "User not found\n";
+        return false;
+    }
 
     // check if the password is right
     if (Users[index].getPassword() == HPass)

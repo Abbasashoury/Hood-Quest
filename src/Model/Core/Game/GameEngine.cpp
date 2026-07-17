@@ -3,6 +3,12 @@
 
 void gameEngine::GameLoop()
 {
+    if(!fileChecker())
+    {
+        cerr << "Save file could not be created.\n";
+        return;
+    }
+
     Usermanager usermanager;
 
     load(usermanager, "save.txt");

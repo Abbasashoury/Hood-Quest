@@ -1,5 +1,27 @@
 #include "SaveLoadManager.h"
 
+bool fileChecker()
+{
+    // check if the file is in the system or no
+    ifstream file("..\\src\\Controller\\save.txt");
+
+    // if the file is in the system
+    if(file.good())
+    {
+        return true;
+    }
+
+    // if the file does not exist
+    ofstream ofs("..\\src\\Controller\\save.txt");
+    if (!ofs)
+    {
+        return false;
+    }
+
+    cout << "Save file created successfully.\n";
+    return true;
+}
+
 void save(const Usermanager &usermanager, const string &file)
 {
     ofstream ofs(file);

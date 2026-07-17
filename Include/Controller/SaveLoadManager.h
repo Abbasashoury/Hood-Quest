@@ -7,6 +7,7 @@
 #include "UserManager.h"
 using namespace std;
 
+bool fileChecker();
 void save(const Usermanager &, const string &);
 void load(Usermanager &, const string &);
 
