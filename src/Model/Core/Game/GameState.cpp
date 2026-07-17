@@ -27,7 +27,8 @@ bool GameState::wolfBlock(Player &player, Wolf &wolf)
 {
     if (player.getPosition() == wolf.getPosition())
     {
-        std::cout << "The wolf caught you" << std::endl;
+        std::cout << "============= GAME OVER =============" << std::endl;
+        std::cout << "The wolf caught You!" << std::endl;
         return true;
     }
     return false;

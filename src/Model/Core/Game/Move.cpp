@@ -117,7 +117,6 @@ void Move::moveWolf(const Graph &graph, Wolf &wolf, Player &player)
     {
         char nextMove = wolfNextPosition(graph, player.getPosition(), wolf.getPosition());
         wolf.setPosition(nextMove);
-        cout << "wolf moved to " << nextMove << " Block" << endl;
         return;
     }
 }
