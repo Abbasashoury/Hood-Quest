@@ -28,6 +28,7 @@ void Usermanager::CreateUser(const string &username, const string &pass)
     }
     else
     {
+        system("cls");
         cout << "<<<< User Already Exists!" << endl;
     }
 }
@@ -45,6 +46,7 @@ bool Usermanager::LoginUser(const string &username, const string &pass)
     // return false if the user does not exist
     if (index == -1)
     {
+        system("cls");
         cerr << "<<<< User not found\n";
         return false;
     }
