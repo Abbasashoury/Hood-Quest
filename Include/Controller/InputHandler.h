@@ -12,12 +12,12 @@ class Cliview;
 class InputHandler
 {
 private:
-    Cliview &cliinput;
+    CliView &cliinput;
     Usermanager &userManager;
     BST &bstview;
 
 public:
-    InputHandler(Usermanager &userManager, BST &bst, Cliview &cli);
+    InputHandler(Usermanager &userManager, BST &bst, CliView &cli);
 
     string MainHandler();
     string CurrentHandler();

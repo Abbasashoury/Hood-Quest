@@ -8,7 +8,7 @@ using namespace std;
 
 class InputHandler;
 
-class Cliview
+class CliView
 {
 private:
     Usermanager &usermanager;
@@ -25,7 +25,7 @@ private:
     string GetColorNode(char, char, char);
 
 public:
-    Cliview(Usermanager &usermanager, MaxHeap &maxheap);
+    CliView(Usermanager &usermanager, MaxHeap &maxheap);
 
     void SetInputHandler(InputHandler &handler) { inputhandler = &handler; }
 

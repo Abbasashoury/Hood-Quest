@@ -16,7 +16,7 @@ void gameEngine::GameLoop()
     BST &bst = usermanager.GetBST();
     MaxHeap &maxheap = usermanager.GetMaxHeap();
 
-    Cliview cli(usermanager, maxheap);
+    CliView cli(usermanager, maxheap);
     InputHandler input(usermanager, bst, cli);
     cli.SetInputHandler(input);
 
@@ -24,7 +24,7 @@ void gameEngine::GameLoop()
     Graph graph;
     Stack stack;
 
-    dijkstra dijkstraa;
+    Dijkstra dijkstra;
     AStar astar;
 
     cli.PrintMainMenu();
@@ -46,8 +46,8 @@ void gameEngine::GameLoop()
             {
             case true:
                 cout << "Dijkstra selected\n";
-                dijkstraa.dijkstraPrintPath(graph, player.getPosition(), 'V', wolf.getPosition());
-                path = dijkstraa.getPath();
+                dijkstra.dijkstraPrintPath(graph, player.getPosition(), 'V', wolf.getPosition());
+                path = dijkstra.getPath();
                 break;
             case false:
                 cout << "A* selected\n";
@@ -58,8 +58,15 @@ void gameEngine::GameLoop()
             string CurrentOrder = input.CurrentHandler();
             if (CurrentOrder == "UNDO")
             {
-                cout << "Undo selected\n";
-                gamestate.undo(player, wolf, stack);
+                if (stack.isEmpty())
+                {
+                    cout << "You have not done any move in the game \n";
+                }
+                else
+                {
+                    cout << "Undo selected\n";
+                    gamestate.undo(player, wolf, stack);
+                }
             }
             else if (CurrentOrder == "A" || CurrentOrder == "B" || CurrentOrder == "C" || CurrentOrder == "D" ||
                      CurrentOrder == "E" || CurrentOrder == "F" || CurrentOrder == "G" || CurrentOrder == "J" ||

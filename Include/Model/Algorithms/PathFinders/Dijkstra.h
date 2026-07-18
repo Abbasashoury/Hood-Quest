@@ -11,7 +11,7 @@
 #include <vector>
 #include <functional>
 
-class dijkstra
+class Dijkstra
 {
 private:
     vector<char> dijkstraPath;
