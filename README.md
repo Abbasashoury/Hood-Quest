@@ -38,7 +38,7 @@ This project was developed as the final project for the **"Data Structures & Alg
 - [Acknowlegment](#acknowledgment)
 - [Show Your Support](#show-your-support)
 
-<br>
+
 
 <a id="project-structure"></a>
 
@@ -138,7 +138,7 @@ HOOD_QUEST/
 
 <a id="key-features"></a>
 
-# ✨ Key Features
+## ✨ Key Features
 
 ### 🔐 User Management
 
@@ -184,7 +184,7 @@ HOOD_QUEST/
 
 <a id="game-map"></a>
 
-# 🗺️ Game Map
+## 🗺️ Game Map
 
 ### In-Game Map Display
 
