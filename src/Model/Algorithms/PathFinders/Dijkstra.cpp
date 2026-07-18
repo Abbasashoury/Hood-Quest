@@ -29,7 +29,7 @@ Dijkstra::dijkstraResult Dijkstra::dijkstraAlgorithm(const Graph &graph, char fr
     {
         // the new members will be add to the maps and initialize at the same time
         distance[i.first] = INT_MAX; // initialize the intiger to it's maximum number
-        previous[i.first] = '\0'; // initialize every character to \0 or nothing
+        previous[i.first] = '\0';    // initialize every character to \0 or nothing
     }
 
     // the source node distance is equall to 0
@@ -66,7 +66,7 @@ Dijkstra::dijkstraResult Dijkstra::dijkstraAlgorithm(const Graph &graph, char fr
             int weight = neighbor.second;
 
             // ignore the the wolf position
-            if(nextNode == wolfPosition)
+            if (nextNode == wolfPosition)
             {
                 continue;
             }
@@ -119,7 +119,7 @@ Dijkstra::pathFinderResult Dijkstra::pathFinder(const Graph &graph, char from, c
     while (current != '\0')
     {
         path.push_back(current); // add the current node to the path
-        if (current == from) // check if the destination node and the starting node are the same
+        if (current == from)     // check if the destination node and the starting node are the same
         {
             break;
         }
@@ -141,9 +141,9 @@ void Dijkstra::dijkstraPrintPath(const Graph &graph, char from, char destination
 {
     // initialize the needed variables
     pathFinderResult result = pathFinder(graph, from, destinationNode, wolfPosition); // get the pathfinder output
-    const vector<char> &path = result.path; // get the path
-    int totalDistance = result.totalweight; // get the total distance
-    dijkstraPath = result.path; // copy the path in a variable
+    const vector<char> &path = result.path;                                           // get the path
+    int totalDistance = result.totalweight;                                           // get the total distance
+    dijkstraPath = result.path;                                                       // copy the path in a variable
 
     // check if there is a path or no
     if (path.empty())
@@ -153,7 +153,7 @@ void Dijkstra::dijkstraPrintPath(const Graph &graph, char from, char destination
     }
 
     // dijkstra output
-    cout << GREEN << "> Dijkstra recomended path: " << endl;
+    cout << GREEN << "> Dijkstra recomended path: (total distance = " << totalDistance << ")\n";
     for (size_t i = 0; i < path.size(); i++)
     {
         cout << path[i];
@@ -162,5 +162,5 @@ void Dijkstra::dijkstraPrintPath(const Graph &graph, char from, char destination
             cout << " -> ";
         }
     }
-    cout << RESET << endl << "> total distance with the recommended path is: " << totalDistance << endl;
+    cout << RESET << endl;
 }
