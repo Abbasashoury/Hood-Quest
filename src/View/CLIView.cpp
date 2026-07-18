@@ -35,12 +35,16 @@ void CliView::PrintLeaderboard()
 {
     pair<string, long int> maxuser;
     maxuser = maxheapview.getTop();
-    std::cout << " The name of top user is " << maxuser.first << "and its score: " << maxuser.second << endl;
+    std::cout << " Top Player: " << maxuser.first << "\n Score = " << maxuser.second << endl;
 }
 
 string CliView::GetColorNode(char currentNode, char playerpos, char wolfpos)
 {
-    if (currentNode == playerpos)
+    if (currentNode == playerpos && currentNode == wolfpos)
+    {
+        return YELLOW + "(" + currentNode + ")" + RESET;
+    }
+    else if (currentNode == playerpos)
     {
         return RED + "(" + currentNode + ")" + RESET;
     }
@@ -53,15 +57,11 @@ string CliView::GetColorNode(char currentNode, char playerpos, char wolfpos)
 
 void CliView::displayGraph(char playerpos, char wolfpos)
 {
-#ifdef _WIN32
-    system("cls");
-#else
-    system("clear");
-#endif
+    std::cout << "\033[2J\033[H";
 
     std::cout << "====================== HOODQUEST MAP ======================\n";
     std::cout << "  " << RED << "[Red Riding Hood: " << playerpos << "]" << RESET
-         << "   " << BLUE << "[Wolf: " << wolfpos << "]" << RESET << "\n";
+              << "   " << BLUE << "[Wolf: " << wolfpos << "]" << RESET << "\n";
     std::cout << "===========================================================\n\n";
 
     std::cout << "     " << GetColorNode('B', playerpos, wolfpos) << "----------2----------" << GetColorNode('C', playerpos, wolfpos) << "----------5----------" << GetColorNode('D', playerpos, wolfpos) << "\n";

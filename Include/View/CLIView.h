@@ -20,6 +20,7 @@ private:
     const string RED = "\033[1;31m";
     const string BLUE = "\033[1;34m";
     const string WHITE = "\033[1;37m";
+    const string YELLOW = "\033[1;33m";
 
     string GetColorNode(char, char, char);
 

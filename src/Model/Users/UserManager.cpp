@@ -80,5 +80,5 @@ void Usermanager::SetUserScore(const string &username, long int score)
     int idx;
     idx = Usermanager::SearchUser(username);
     Users[idx].SetScore(score);
-    cout << "successfully updated the score of " << username << " to " << score << endl;
+    cout << "Successfully updated the score of (" << username << ") to: " << score << endl;
 }

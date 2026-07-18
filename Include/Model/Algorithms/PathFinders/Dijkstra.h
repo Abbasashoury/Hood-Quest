@@ -15,6 +15,10 @@ class Dijkstra
 {
 private:
     vector<char> dijkstraPath;
+    
+    const string RESET = "\033[0m";
+    const string GREEN = "\033[1;32m";
+
 public:
     struct dijkstraResult; // a struct to store the dijkstra result
     struct pathFinderResult; // a struct to store the path finder result
