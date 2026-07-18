@@ -4,7 +4,7 @@
 void gameEngine::GameLoop()
 {
     system("cls");
-    
+
     if (!fileChecker())
     {
         cerr << "<<<< Save file could not be created.\n";
@@ -41,7 +41,7 @@ void gameEngine::GameLoop()
         vector<char> path;
         while (true)
         {
-            cli.displayGraph(player.getPosition(), wolf.getPosition());
+            cli.displayGraph(player.getPosition(), wolf.getPosition(), CurrentUser, player.getScore());
             mode = input.SelectModeofAlghorithms();
             switch (mode)
             {
@@ -82,7 +82,7 @@ void gameEngine::GameLoop()
 
                     if (gamestate.reachedDestination(player) || gamestate.wolfBlock(player, wolf))
                     {
-                        cli.displayGraph(player.getPosition(), wolf.getPosition());
+                        cli.displayGraph(player.getPosition(), wolf.getPosition(), CurrentUser, player.getScore());
 
                         cout << "> game is finish.\n";
                         int idx = usermanager.SearchUser(CurrentUser);

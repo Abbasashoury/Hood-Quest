@@ -29,7 +29,7 @@ public:
 
     void SetInputHandler(InputHandler &handler) { inputhandler = &handler; }
 
-    void displayGraph(char, char);
+    void displayGraph(char, char, const string &, long int);
     void PrintMainMenu();
     void PrintLeaderboard();
     void PrintScore();
