@@ -18,7 +18,7 @@ bool fileChecker()
         return false;
     }
 
-    cout << "Save file created successfully.\n";
+    cout << "> Save file created successfully.\n";
     return true;
 }
 
@@ -27,7 +27,7 @@ void save(const Usermanager &usermanager, const string &file)
     ofstream ofs(file);
     if (!ofs)
     {
-        cerr << "Could not open file for save: " << file << endl;
+        cerr << "<<<< Could not open file for save: " << file << endl;
         return;
     }
 
@@ -38,7 +38,7 @@ void save(const Usermanager &usermanager, const string &file)
         ofs << usermanager.Users[i].getCurrentScore() << "\n";
     }
 
-    cout << "Data Saved Successfully!" << endl;
+    cout << "> Data Saved Successfully!" << endl;
 }
 
 void load(Usermanager &usermanager, const string &file)
@@ -46,7 +46,7 @@ void load(Usermanager &usermanager, const string &file)
     ifstream ifs(file);
     if (!ifs)
     {
-        cerr << "Could not open file for load: " << file << endl;
+        cerr << "<<<< Could not open file for load: " << file << endl;
         return;
     }
 
@@ -77,5 +77,5 @@ void load(Usermanager &usermanager, const string &file)
         usermanager.maxheapuser.insert(uname, uscore);
     }
 
-    cout << "Data Loaded Successfully!" << endl;
+    cout << "> Data Loaded Successfully!" << endl;
 }

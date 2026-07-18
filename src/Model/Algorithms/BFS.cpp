@@ -80,7 +80,7 @@ vector<char> BFS(const Graph &graph, char playerPosition, char wolfPosition)
 
     catch (runtime_error &x)
     {
-        cout << "Error: " << x.what() << endl;
+        cout << "<<<< Error: " << x.what() << endl;
     }
 
     return {};

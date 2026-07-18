@@ -22,13 +22,13 @@ void Usermanager::CreateUser(const string &username, const string &pass)
 
         // increase the number of users
         Usermanager::increaseNumofUser();
-        cout << "User Created Successfully!" << endl;
+        cout << "> User Created Successfully!" << endl;
 
         save(*this, "..\\src\\Controller\\save.txt");
     }
     else
     {
-        cout << "User Already Exists!" << endl;
+        cout << "<<<< User Already Exists!" << endl;
     }
 }
 
@@ -45,7 +45,7 @@ bool Usermanager::LoginUser(const string &username, const string &pass)
     // return false if the user does not exist
     if (index == -1)
     {
-        cerr << "User not found\n";
+        cerr << "<<<< User not found\n";
         return false;
     }
 
@@ -56,7 +56,7 @@ bool Usermanager::LoginUser(const string &username, const string &pass)
     }
 
     // if the password is wrong
-    cout << "Login Failed!" << endl;
+    cout << "<<<< Login Failed!" << endl;
     return false;
 }
 
@@ -80,5 +80,5 @@ void Usermanager::SetUserScore(const string &username, long int score)
     int idx;
     idx = Usermanager::SearchUser(username);
     Users[idx].SetScore(score);
-    cout << "Successfully updated the score of (" << username << ") to: " << score << endl;
+    cout << "> Successfully updated the score of (" << username << ") to: " << score << endl;
 }

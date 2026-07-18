@@ -27,8 +27,8 @@ bool GameState::wolfBlock(Player &player, Wolf &wolf)
 {
     if (player.getPosition() == wolf.getPosition())
     {
-        std::cout << "============= GAME OVER =============" << std::endl;
-        std::cout << "The wolf caught You!" << std::endl;
+        std::cout << "==================== GAME OVER ====================" << std::endl;
+        std::cout << "> The wolf caught You!" << std::endl;
         return true;
     }
     return false;
@@ -39,7 +39,7 @@ bool GameState::reachedDestination(Player &player)
 {
     if (player.getPosition() == 'V')
     {
-        std::cout << "you reached the grandmother's house" << std::endl;
+        std::cout << "> You reached the grandmother's house" << std::endl;
         player.addScore(5);
         return true;
     }

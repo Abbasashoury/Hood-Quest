@@ -9,7 +9,4 @@ User::User(string username, size_t password)
 }
 
 // user destructor implementation
-User::~User()
-{
-    
-}
+User::~User() {}
