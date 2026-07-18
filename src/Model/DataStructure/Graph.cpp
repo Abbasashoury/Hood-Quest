@@ -60,6 +60,6 @@ Graph::Graph()
     addEdge('U', 'V', 3);
     addEdge('Q', 'V', 5);
     addEdge('U', 'S', 6);
-    addEdge('R', 'K', 4);
+    addEdge('R', 'K', 3);
     addEdge('P', 'J', 5);
 }
