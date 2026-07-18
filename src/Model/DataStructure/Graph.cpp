@@ -59,4 +59,7 @@ Graph::Graph()
     addEdge('T', 'U', 2);
     addEdge('U', 'V', 3);
     addEdge('Q', 'V', 5);
+    addEdge('U', 'S', 6);
+    addEdge('R', 'K', 4);
+    addEdge('P', 'J', 5);
 }
