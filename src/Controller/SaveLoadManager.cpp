@@ -1,5 +1,7 @@
 #include "SaveLoadManager.h"
 
+
+// file checker function implementation
 bool fileChecker()
 {
     // check if the file is in the system or no
@@ -22,8 +24,10 @@ bool fileChecker()
     return true;
 }
 
+// save function implementation
 void save(const Usermanager &usermanager, const string &file)
 {
+    // search for the save.txt file
     ofstream ofs(file);
     if (!ofs)
     {
@@ -31,6 +35,7 @@ void save(const Usermanager &usermanager, const string &file)
         return;
     }
 
+    // a for loop to save data from every user in save.txt file
     for (size_t i = 0; i < usermanager.Users.size(); i++)
     {
         ofs << usermanager.Users[i].getUsername() << "\n";
@@ -41,8 +46,10 @@ void save(const Usermanager &usermanager, const string &file)
     cout << "> Data Saved Successfully!" << endl;
 }
 
+// load funtion implementation
 void load(Usermanager &usermanager, const string &file)
 {
+    // check for the save.txt file
     ifstream ifs(file);
     if (!ifs)
     {
@@ -57,6 +64,7 @@ void load(Usermanager &usermanager, const string &file)
     size_t password;
     long int score;
 
+    // a while loop to get and initilize every user from the save.txt file
     while (ifs >> username >> password >> score)
     {
         User user(username, password);
@@ -65,9 +73,11 @@ void load(Usermanager &usermanager, const string &file)
         usermanager.increaseNumofUser();
     }
 
+    // clear the BST and Max Heap
     usermanager.bstuser.clear();
     usermanager.maxheapuser.clear();
 
+    // a for loop to insert users in Max Heap and BST
     for (size_t i = 0; i < usermanager.Users.size(); i++)
     {
         const string &uname = usermanager.Users[i].getUsername();
