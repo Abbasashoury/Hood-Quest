@@ -25,7 +25,7 @@ public:
     void CreateUser(const string &, const string &); // craete user method to create new users
     bool LoginUser(const string &, const string &);  // login method
     int SearchUser(const string &);                  // a method to search between the users
-    void SetUserScore(const string &, long int);
+    void SetUserScore(const string &, long int);     // a method to set a specefic user score 
 
     long int GetUserScore(int idx) { return Users[idx].getCurrentScore(); }
     void increaseNumofUser() { Numofuser++; } // increase the number of users

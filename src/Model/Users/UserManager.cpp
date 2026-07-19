@@ -75,6 +75,7 @@ int Usermanager::SearchUser(const string &username)
     return -1;
 }
 
+// set user score method implementation
 void Usermanager::SetUserScore(const string &username, long int score)
 {
     int idx;
