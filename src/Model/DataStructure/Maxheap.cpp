@@ -74,10 +74,10 @@ void MaxHeap::updateScore(const string &username, long int newScore)
 }
 
 // max heap is empty method implementation
-// bool MaxHeap::MaxHeapIsEmpty() const
-// {
-//     return heap.empty();
-// }
+bool MaxHeap::MaxHeapIsEmpty() const
+{
+    return heap.empty();
+}
 
 // get top method implementation
 pair<string, long int> MaxHeap::getTop() const
